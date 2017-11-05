@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     BtnMultiply.setEnabled(true);
                     BtnDivide.setEnabled(true);
                     flag1=true;
-
+                    flag5=false;
                     flag4=false;
             }
             switch (v.getId()){
@@ -111,12 +111,7 @@ public class MainActivity extends AppCompatActivity {
             final Button BtnRooting = findViewById(R.id.BtnRooting);
             final Button BtnSquare = findViewById(R.id.BtnSquare);
             final Button BtnReciprocal = findViewById(R.id.BtnReciprocal);
-            switch (v.getId()) {
-                case R.id.BtnDivide:op=4;break;
-                case R.id.BtnMultiply:op=3;break;
-                case R.id.BtnMinus:op=2;break;
-                case R.id.BtnPlus:op=1;
-            }
+
             switch (v.getId()) {
                 case R.id.BtnDivide:
                 case R.id.BtnMultiply:
@@ -217,6 +212,12 @@ public class MainActivity extends AppCompatActivity {
                     flag2 = true;//标记已按加减乘除
                     flag1 = false;//可以按数字键
                     flag5=false;
+            }
+            switch (v.getId()) {
+                case R.id.BtnDivide:op=4;break;
+                case R.id.BtnMultiply:op=3;break;
+                case R.id.BtnMinus:op=2;break;
+                case R.id.BtnPlus:op=1;
             }
         }
     }
@@ -340,7 +341,7 @@ public class MainActivity extends AppCompatActivity {
                         Sign = false;
                     }
                 Text.setText(a);
-                    str=new StringBuilder("");
+                str=new StringBuilder(a);
             }
         });
         /*CE键点击事件*/
@@ -382,9 +383,15 @@ public class MainActivity extends AppCompatActivity {
                     flag4=false;//各个按钮变为可按状态，并且可以执行单目运算
                 }
                 else if (str.length() > 1) {
-                    str.deleteCharAt(str.length() - 1);
-                    Text.setText(str);
-                    flag4=false;//如果字符串长度不为零，则删除字符串末尾的一个字符，并且可以执行单目运算
+                    if (!Objects.equals(Text.getText().toString(), "-0.")) {
+                        str.deleteCharAt(str.length() - 1);
+                        Text.setText(str);
+                        flag4 = false;//如果字符串长度不为零，则删除字符串末尾的一个字符，并且可以执行单目运算
+                    }
+                    else{
+                        str=new StringBuilder("");
+                        Text.setText("0");
+                    }
                 }
                 else if (str.length()==1){
                     str=new StringBuilder("");
@@ -483,12 +490,16 @@ public class MainActivity extends AppCompatActivity {
                     flag2 = false;
                     flag4=false;
                     str = new StringBuilder("");
-                } else {
+                }
+                else {
                     if (!flag1 && !flag2) {//如果没有按下数字键和加减乘除
                         num1 = sum;//将结果赋值给num1，num2仍为上次计算中的值
                     }
                     else if (flag1&&!flag2&&flag5){
                         num1=new BigDecimal(Text.getText().toString());
+                    }
+                    else if (flag1&&!flag2&&!flag5){
+                        result=Text.getText().toString();
                     }
                     else num2=new BigDecimal((Text.getText().toString()));//否则num1由运算符确定，num2为屏幕上显示的数字
                     switch (op) {

@@ -14,7 +14,7 @@
         android:layout_height="150dp"
         android:text=""
         android:textSize="42sp"
-        android:gravity="end"
+        android:gravity="bottom|right"
         android:id="@+id/Text"
         android:layout_gravity="top"
         android:background="@android:color/darker_gray"
