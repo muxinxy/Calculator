@@ -408,6 +408,7 @@ public class MainActivity extends AppCompatActivity {
                 double a=num.setScale(20, BigDecimal.ROUND_HALF_UP).doubleValue();
                 double b=Math.sqrt(a);
                 String c=String.valueOf(b);
+                sum=new BigDecimal(c);
                 if (c.indexOf(".") > 0) {
                     c = c.replaceAll("0+?$", "");//去掉多余的0
                     c = c.replaceAll("[.]$", "");//如最后一位是.则去掉
@@ -424,6 +425,7 @@ public class MainActivity extends AppCompatActivity {
                 double a=num.setScale(20, BigDecimal.ROUND_HALF_UP).doubleValue();
                 double b=Math.pow(a,2);
                 String c=String.valueOf(b);
+                sum=new BigDecimal(c);
                 if (c.indexOf(".") > 0) {
                     c = c.replaceAll("0+?$", "");//去掉多余的0
                     c = c.replaceAll("[.]$", "");//如最后一位是.则去掉
@@ -442,6 +444,7 @@ public class MainActivity extends AppCompatActivity {
                 if (a!=0) {
                     b = 1 / a;
                     c = String.valueOf(b);
+                    sum=new BigDecimal(c);
                     if (c.indexOf(".") > 0) {
                         c = c.replaceAll("0+?$", "");//去掉多余的0
                         c = c.replaceAll("[.]$", "");//如最后一位是.则去掉
@@ -495,7 +498,7 @@ public class MainActivity extends AppCompatActivity {
                     if (!flag1 && !flag2) {//如果没有按下数字键和加减乘除
                         num1 = sum;//将结果赋值给num1，num2仍为上次计算中的值
                     }
-                    else if (flag1&&!flag2&&flag5){
+                    else if (flag1&&!flag2){
                         num1=new BigDecimal(Text.getText().toString());
                     }
                     else if (flag1&&!flag2&&!flag5){
