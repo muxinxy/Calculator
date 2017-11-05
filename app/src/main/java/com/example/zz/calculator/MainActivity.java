@@ -382,7 +382,7 @@ public class MainActivity extends AppCompatActivity {
                     BtnReciprocal.setEnabled(true);
                     flag4=false;//各个按钮变为可按状态，并且可以执行单目运算
                 }
-                else if (str.length() > 1) {
+                else if (str.length() > 1&&!flag5) {
                     if (!Objects.equals(Text.getText().toString(), "-0.")) {
                         str.deleteCharAt(str.length() - 1);
                         Text.setText(str);
@@ -393,7 +393,7 @@ public class MainActivity extends AppCompatActivity {
                         Text.setText("0");
                     }
                 }
-                else if (str.length()==1){
+                else if (str.length()==1&&!flag5){
                     str=new StringBuilder("");
                     Text.setText("0");
                     flag4=false;
