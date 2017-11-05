@@ -47,14 +47,14 @@ public class MainActivity extends AppCompatActivity {
                     BtnMultiply.setEnabled(true);
                     BtnDivide.setEnabled(true);
                     flag1=true;
-                    flag2=false;
+
                     flag4=false;
             }
             switch (v.getId()){
                 case R.id.Btn0:
                     double a=Double.parseDouble(Text.getText().toString());
                     if (Text.getText().toString().contains(".")||a!=0){
-                        str=new StringBuilder(Text.getText().toString());
+
                         str.append("0");
                         Text.setText(str);
                     }
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.BtnMultiply:
                 case R.id.BtnMinus:
                 case R.id.BtnPlus:
-                    if (!flag5) {
+                    if (flag1&&flag2&&!flag5) {
                         if (flag3 && (Objects.equals(result, "除数不能为零") || Objects.equals(result, "结果未定义") || Objects.equals(result, "结果超出15位"))) {
                             result = "0";//如果屏幕上显示上述三句话，结果置为零
                             BtnPoint.setEnabled(true);
@@ -142,31 +142,36 @@ public class MainActivity extends AppCompatActivity {
                             flag2 = false;
                             flag4 = false;
                             str = new StringBuilder("");
-                        } else if (!flag4) {
+                        } else {
                             if (!flag1 && !flag2) {//如果没有按下数字键和加减乘除
                                 num1 = sum;//将结果赋值给num1，num2仍为上次计算中的值
-                            } else
-                                num2 = new BigDecimal((Text.getText().toString()));//否则num1由运算符确定，num2为屏幕上显示的数字
+                            }
+                            else if (flag1&&!flag2&&flag5) {
+                                num1 = new BigDecimal(Text.getText().toString());
+                            }
+                            else num2 = new BigDecimal((Text.getText().toString()));//否则num1由运算符确定，num2为屏幕上显示的数字
                             switch (op) {
                                 case 1: {
                                     sum = new BigDecimal("" + num1.add(num2));
-                                    result = String.valueOf(sum);
+                                    result = sum.toPlainString();
                                 }
                                 break;
                                 case 2: {
                                     sum = new BigDecimal("" + num1.subtract(num2));
-                                    result = String.valueOf(sum);
+                                    result = sum.toPlainString();
                                 }
                                 break;
                                 case 3: {
                                     sum = new BigDecimal("" + num1.multiply(num2));
-                                    result = String.valueOf(sum);
+                                    result = sum.toPlainString();
                                 }
                                 break;
                                 case 4: {
                                     if (!Objects.equals(num2, new BigDecimal("0"))) {
-                                        sum = num1.divide(num2, 20, BigDecimal.ROUND_HALF_UP);
-                                        result = String.valueOf(sum);
+                                        sum = num1.divide(num2, 13, BigDecimal.ROUND_HALF_UP);
+                                        Double s=sum.doubleValue();
+                                        if (s<1e-13)sum=new BigDecimal("0");
+                                        result = sum.toPlainString();
                                     } else if (Objects.equals(num1, new BigDecimal("0")) && Objects.equals(num2, new BigDecimal("0"))) {
                                         result = "结果未定义";//如果被除数和除数都为零
                                     } else if (!Objects.equals(num1, new BigDecimal("0")) && Objects.equals(num2, new BigDecimal("0"))) {
@@ -267,8 +272,8 @@ public class MainActivity extends AppCompatActivity {
         BtnPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if (!Point && "0".equals(Text.getText().toString())) {//如果之前没有按小数点并且屏幕上显示为0，使屏幕显示0.
-                        str.append("0.");
+                    if ((!Point && "0".equals(Text.getText().toString()))||flag5 ){//如果之前没有按小数点并且屏幕上显示为0，使屏幕显示0.
+                        str=new StringBuilder("0.");
                         Text.setText(str);
                         Point = true;
                     } else if (!Text.getText().toString().contains(".")){//如果屏幕上的数字不包含小数点，则在其后添加小数点
@@ -489,23 +494,25 @@ public class MainActivity extends AppCompatActivity {
                     switch (op) {
                         case 1: {
                             sum=new BigDecimal("" + num1.add(num2));
-                            result = String.valueOf(sum);
+                            result = sum.toPlainString();
                         }
                         break;
                         case 2: {
                             sum=new BigDecimal("" + num1.subtract(num2));
-                            result = String.valueOf(sum);
+                            result = sum.toPlainString();
                         }
                         break;
                         case 3: {
                             sum=new BigDecimal("" + num1.multiply(num2));
-                            result = String.valueOf(sum);
+                            result = sum.toPlainString();
                         }
                         break;
                         case 4: {
                             if (!Objects.equals(num2, new BigDecimal("0"))) {
-                                sum=num1.divide(num2,20,BigDecimal.ROUND_HALF_UP);
-                                result = String.valueOf(sum);
+                                sum = num1.divide(num2, 13, BigDecimal.ROUND_HALF_UP);
+                                Double s=sum.doubleValue();
+                                if (s<1e-13)sum=new BigDecimal("0");
+                                result = sum.toPlainString();
                             } else if (Objects.equals(num1, new BigDecimal("0")) && Objects.equals(num2, new BigDecimal("0"))) {
                                 result = "结果未定义";//如果被除数和除数都为零
                             } else if (!Objects.equals(num1, new BigDecimal("0")) && Objects.equals(num2, new BigDecimal("0"))){
