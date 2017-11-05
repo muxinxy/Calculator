@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="Btn0">0</string>
+    <string name="Btn1">1</string>
+    <string name="Btn2">2</string>
+    <string name="Btn3">3</string>
+    <string name="Btn4">4</string>
+    <string name="Btn5">5</string>
+    <string name="Btn6">6</string>
+    <string name="Btn7">7</string>
+    <string name="Btn8">8</string>
+    <string name="Btn9">9</string>
+    <string name="BtnPercent">%</string>
+    <string name="BtnRooting">√</string>
+    <string name="BtnSquare">x²</string>
+    <string name="BtnReciprocal">1/x</string>
+    <string name="BtnCE">CE</string>
+    <string name="BtnC">C</string>
+    <string name="BtnBack">←</string>
+    <string name="BtnPoint">.</string>
+    <string name="BtnPlus">＋</string>
+    <string name="BtnMinus">－</string>
+    <string name="BtnMultiply">×</string>
+    <string name="BtnDivide">÷</string>
+    <string name="BtnSign">±</string>
+    <string name="BtnEqual">=</string>
+    <drawable name="clr_normal">#ffffff</drawable>
+    <drawable name="clr_pressed">#0636f7</drawable>
+</resources>

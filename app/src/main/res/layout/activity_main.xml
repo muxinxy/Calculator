@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.zz.calculator.MainActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text=""
+        android:textSize="42sp"
+        android:gravity="end"
+        android:id="@+id/Text"
+        android:layout_gravity="top"
+        android:background="@android:color/darker_gray"
+        android:maxLength="15"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnPercent"
+            android:id="@+id/BtnPercent"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnRooting"
+            android:id="@+id/BtnRooting"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnSquare"
+            android:id="@+id/BtnSquare"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnReciprocal"
+            android:id="@+id/BtnReciprocal"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnCE"
+            android:id="@+id/BtnCE"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnC"
+            android:id="@+id/BtnC"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnBack"
+            android:id="@+id/BtnBack"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnDivide"
+            android:id="@+id/BtnDivide"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/Btn7"
+            android:id="@+id/Btn7"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/Btn8"
+            android:id="@+id/Btn8"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/Btn9"
+            android:id="@+id/Btn9"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnMultiply"
+            android:id="@+id/BtnMultiply"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/Btn4"
+            android:id="@+id/Btn4"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/Btn5"
+            android:id="@+id/Btn5"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/Btn6"
+            android:id="@+id/Btn6"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnMinus"
+            android:id="@+id/BtnMinus"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/Btn1"
+            android:id="@+id/Btn1"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/Btn2"
+            android:id="@+id/Btn2"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/Btn3"
+            android:id="@+id/Btn3"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnPlus"
+            android:id="@+id/BtnPlus"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnSign"
+            android:id="@+id/BtnSign"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/Btn0"
+            android:id="@+id/Btn0"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnPoint"
+            android:id="@+id/BtnPoint"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/BtnEqual"
+            android:id="@+id/BtnEqual"
+            android:background="@drawable/login_button_selector"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+
+</LinearLayout>
+</android.support.constraint.ConstraintLayout>
